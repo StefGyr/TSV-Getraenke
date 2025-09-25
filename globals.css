@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root{ color-scheme: dark; }
+body{ @apply bg-match-bg text-white; }
+.mono{ font-variant-numeric: tabular-nums; }

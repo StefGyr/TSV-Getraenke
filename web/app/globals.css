@@ -1,0 +1,71 @@
+/* Tailwind v4 einbinden */
+@import "tailwindcss";
+
+/* ===== Farb-Theme ===== */
+:root{
+  --bg:#0B0F14;          /* Fast-Schwarz */
+  --primary:#14B45C;     /* Grasgrün */
+  --accent:#EFFF57;      /* Neon-Gelb */
+  --muted:#9AA4AE;       /* Grau */
+}
+html.dark body{
+  background:var(--bg);
+  color:#fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* ===== Reusable UI (ohne @apply) ===== */
+.card{
+  border-radius:16px; /* ~ rounded-2xl */
+  border:1px solid #27272a; /* zinc-800 */
+  background:rgba(24,24,27,.6); /* zinc-900/60 */
+  padding:16px; /* p-4 */
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:8px 16px;          /* px-4 py-2 */
+  border-radius:12px;         /* ~ rounded-xl */
+  border:1px solid #3f3f46;   /* zinc-700 */
+  font-size:14px;             /* text-sm */
+  font-weight:500;
+  transition:background .15s,border-color .15s,color .15s,opacity .15s;
+  user-select:none;
+}
+.btn:disabled{ opacity:.5; cursor:not-allowed; }
+
+.btn-primary{
+  border-color:rgba(16,185,129,.4);   /* emerald-500/40 */
+  background:rgba(5,150,105,.20);     /* emerald-600/20 */
+  color:#bbf7d0;                      /* emerald-200 */
+}
+.btn-primary:hover{ background:rgba(5,150,105,.30); }
+
+.btn-ghost{
+  border-color:#3f3f46;               /* zinc-700 */
+  background:rgba(39,39,42,.6);       /* zinc-800/60 */
+  color:#e4e4e7;                      /* zinc-100 */
+}
+.btn-ghost:hover{ background:#27272a; } /* zinc-800 */
+
+.input{
+  border-radius:12px;
+  background:#0a0a0a;                 /* ~ zinc-900 */
+  border:1px solid #27272a;           /* zinc-800 */
+  padding:8px 12px;                   /* px-3 py-2 */
+  font-size:14px;
+  color:#fff;
+}
+
+/* Tabs (optional) */
+.tabs{ display:flex; flex-wrap:wrap; gap:8px; }
+.tab{ composes: btn btn-ghost; }      /* falls „composes“ nicht unterstützt, einfach className="btn btn-ghost" im JSX setzen */
+.tab-active{ composes: btn btn-primary; }
+
+/* Modal Z-Index Safety */
+.modal-root{ z-index:99999; }
+.modal-panel{ z-index:100000; }
